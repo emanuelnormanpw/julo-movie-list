@@ -71,6 +71,7 @@ module.exports = {
         'no-shadow': 'off',
         'no-undef': 'off',
         'import/extensions': 'off',
+        'import/prefer-default-export': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'arrow-body-style': 'off',
         'no-else-return': 'off',
@@ -87,6 +88,7 @@ module.exports = {
         'no-unsafe-optional-chaining': 'off',
         'no-lonely-if': 'off',
         'no-dupe-else-if': 'off',
+
         'object-curly-newline': ['error',
             {
                 'ObjectExpression': { 'consistent': true, 'multiline': true },
@@ -100,5 +102,10 @@ module.exports = {
     settings: {
         'import/parser': 'babel-eslint',
         'import/ignore': './node_modules',
+        'import/resolver': {
+            'node': {
+                'paths': ['src'],
+            },
+        },
     },
 };
