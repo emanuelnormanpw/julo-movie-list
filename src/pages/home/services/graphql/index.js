@@ -2,4 +2,4 @@
 import { useQuery, useMutation } from '@apollo/client';
 import * as Schema from './schema';
 
-export const MediaTrend = (variables) => useQuery(Schema.MediaTrend, { variables });
+export const Media = (variables) => useQuery(Schema.Media, { variables });

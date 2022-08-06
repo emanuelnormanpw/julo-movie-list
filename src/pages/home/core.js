@@ -1,13 +1,22 @@
+import { useState } from 'react';
 import View from './components';
-import { MediaTrend } from './services/graphql';
+import { Media } from './services/graphql';
 
 const Home = (props) => {
-    const a = 1;
-    const { data, loading, error } = MediaTrend({
-        mediaId: 1,
+    const [getPerPage, setPerPage] = useState(10);
+    const { data, loading, error, refetch } = Media({
+        page: 1,
+        perPage: getPerPage,
+        type: 'ANIME',
+        sort: 'FAVOURITES',
     });
+
+    const loadMore = async () => {
+        await setPerPage(getPerPage + 10);
+        refetch();
+    };
     return (
-        <View data={data} error={error} {...props} />
+        <View data={data} loading={loading} loadMore={loadMore} error={error} {...props} />
     );
 };
 
