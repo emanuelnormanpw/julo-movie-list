@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Row, Col } from 'commons/grid';
 
 const Logo = styled('img')({
-    width: '20%',
+    width: 45,
 });
 
 const UserImage = styled('img')({

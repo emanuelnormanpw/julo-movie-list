@@ -5,8 +5,26 @@ import { Layout, Container } from 'commons/layout';
 import { Global, css } from '@emotion/react';
 import { Fonts } from 'commons/fonts';
 
+import { BrowserRouter as Routes,
+    Route,
+    Outlet,
+    Link,
+    useRoutes } from 'react-router-dom';
+
 import Header from 'commons/header';
 import Home from './pages/home';
+import Navigation from 'commons/navigation';
+import NotFound from 'commons/notFound';
+import Detail from 'pages/detail';
+
+const Router = () => {
+    let routes = useRoutes([
+        { path: '/', element: <Home /> },
+        { path: '/detail/:movieId', element: <Detail /> },
+        { path: '*', element: <NotFound /> },
+    ]);
+    return routes;
+};
 
 function App() {
     return (
@@ -18,8 +36,11 @@ function App() {
                 <Layout>
                     <Container>
                         <Header />
-                        <Home />
+                        <Routes>
+                            <Router />
+                        </Routes>
                     </Container>
+                    <Navigation />
                 </Layout>
             </ApolloProvider>
         </div>

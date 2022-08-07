@@ -13,6 +13,7 @@ query ($page: Int, $perPage: Int, $type: MediaType, $sort: [MediaSort]) {
         coverImage {
             large
         }
+        isAdult
         title {
           romaji
           english

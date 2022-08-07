@@ -14,3 +14,7 @@ html,body {
 body {
   background-color: #02101D;
 }
+
+.App {
+  position: relative;
+}

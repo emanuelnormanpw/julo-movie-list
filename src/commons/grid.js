@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { color, mobile, bold, normal } from 'commons/theme';
 
 const grid = (col) => {
     return (100 / (12 / col));
@@ -25,5 +26,8 @@ export const Col = styled('div')(
         textAlign: props.align,
         flex: `0 0 ${grid(props.col)}%`,
         minWidth: `${grid(props.col)}%`,
+        [mobile]: {
+            flex: `0 0 ${grid(props.md)}%`,
+        },
     }),
 );

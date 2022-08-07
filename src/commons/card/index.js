@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Row, Col } from 'commons/grid';
-import { color, mobile, bold, normal } from 'commons/theme';
-import { Typography } from 'commons/typography';
+import { color, mobile } from 'commons/theme';
+import { Link } from 'react-router-dom';
 
 const CardWrapper = styled('div')({
     width: '100%',
@@ -10,9 +10,6 @@ const CardWrapper = styled('div')({
     borderRadius: 10,
     color: color.lightGray,
     fontSize: 14,
-    '& p': {
-        marginTop: 16,
-    },
 });
 
 const CardImage = styled('div')({
@@ -31,24 +28,30 @@ const CardImage = styled('div')({
         width: '100%',
         height: '100%',
     },
+    [mobile]: {
+        height: 200,
+    },
 });
 
+const TextOverlay = () => {};
+
 export const Card = (props) => {
-    const { img, text } = props;
+    const { id, img, text, isAdult, withLink } = props;
     return (
         <CardWrapper>
-            <Row>
-                <Col col="12">
+            {withLink
+                ? (
+                    <Link to={`detail/${id}`}>
+                        <CardImage>
+                            <img src={img}></img>
+                        </CardImage>
+                    </Link>
+                )
+                : (
                     <CardImage>
                         <img src={img}></img>
                     </CardImage>
-                </Col>
-                <Col col="12">
-                    <Typography>
-                        {text}
-                    </Typography>
-                </Col>
-            </Row>
+                )}
         </CardWrapper>
     );
 };

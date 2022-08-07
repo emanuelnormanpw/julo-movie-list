@@ -3,7 +3,7 @@ import View from './components';
 import { Media } from './services/graphql';
 
 const Home = (props) => {
-    const [getPerPage, setPerPage] = useState(10);
+    const [getPerPage, setPerPage] = useState(12);
     const { data, loading, error, refetch } = Media({
         page: 1,
         perPage: getPerPage,
@@ -12,7 +12,7 @@ const Home = (props) => {
     });
 
     const loadMore = async () => {
-        await setPerPage(getPerPage + 10);
+        await setPerPage(getPerPage + 12);
         refetch();
     };
     return (

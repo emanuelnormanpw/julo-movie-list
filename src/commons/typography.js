@@ -9,5 +9,7 @@ export const Typography = styled('p')(
     (props) => ({
         color: props.type && color.darkGray,
         fontFamily: props.normal ? normal : bold,
+        margin: props.m,
+        padding: props.p,
     }),
 );
