@@ -91,9 +91,8 @@ const Pagination = (props) => {
     );
 };
 const HomeView = (props) => {
-    const { addToWishlist, nextPage, prevPage } = props;
+    const { addToWishlist } = props;
     const { listMovie, myAnime } = useContext(ListContext);
-
     if (listMovie.data.length) {
         return (
             <div>
@@ -156,9 +155,16 @@ const HomeView = (props) => {
                                             </div>
                                         </Col>
                                         <Col col="12">
-                                            {item.title.native && (
+                                            {(item.title.native || item.title.romaji || item.title.english) && (
                                                 <Col col="12">
-                                                    <Typography>{item.title.native}</Typography>
+                                                    <Typography>
+                                                        {
+                                                            item.title.native
+                                                            || item.title.romaji
+                                                            || item.title.romaji
+                                                            || '-'
+                                                        }
+                                                    </Typography>
                                                 </Col>
                                             )}
                                         </Col>

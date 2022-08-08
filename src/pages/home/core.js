@@ -28,14 +28,6 @@ const Home = (props) => {
         },
     });
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
     let localStrorage = JSON.parse(localStorage.getItem('data'));
 
     const addToWishlist = (e, id) => {
@@ -87,13 +79,6 @@ const Home = (props) => {
         }
     };
 
-    const handleScroll = () => {
-        const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
-        if (bottom) {
-            setPerPage(getPerPage += 12);
-        }
-    };
-
     return (
         <View
             page={page}
@@ -101,7 +86,6 @@ const Home = (props) => {
             prevPage={prevPage}
             data={data}
             loading={loading}
-            handleScroll={handleScroll}
             addToWishlist={addToWishlist}
             error={error}
             {...props}
