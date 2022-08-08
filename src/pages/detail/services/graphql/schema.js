@@ -11,7 +11,7 @@ query ($page: Int, $perPage: Int, $id: Int) {
       media(id: $id) {
         id
         coverImage {
-            large
+          large
         }
         isAdult
         description

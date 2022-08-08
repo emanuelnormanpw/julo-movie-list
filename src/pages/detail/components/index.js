@@ -5,6 +5,11 @@ import { Row, Col } from 'commons/grid';
 import { Card } from 'commons/card';
 import styled from '@emotion/styled';
 import { color, normal } from 'commons/theme';
+import { Link } from 'react-router-dom';
+import { Typography } from 'commons/typography';
+import { SkeletonWrapper, Skeleton } from 'commons/skeleton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Description = styled('div')(
     {
@@ -17,12 +22,26 @@ const Description = styled('div')(
 );
 
 const DetailView = (props) => {
-    const { data, loading, error } = props;
+    const { data, loading } = props;
     if (loading) {
         return (
-            <div>
-                Loading
-            </div>
+            <Row>
+                <Col col="12">
+                    <SkeletonWrapper>
+                        <Skeleton height="40px" />
+                    </SkeletonWrapper>
+                </Col>
+                <Col col="12">
+                    <SkeletonWrapper>
+                        <Skeleton height="200px" />
+                    </SkeletonWrapper>
+                </Col>
+                <Col col="12">
+                    <SkeletonWrapper>
+                        <Skeleton height="200px" />
+                    </SkeletonWrapper>
+                </Col>
+            </Row>
         );
     }
 
@@ -31,6 +50,14 @@ const DetailView = (props) => {
     return (
         <div>
             <Row>
+                <Col col="12">
+                    <Link to="/">
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faChevronCircleLeft}></FontAwesomeIcon>
+                            <Typography type={color.white} m="0 0 0 8px">Kembali</Typography>
+                        </div>
+                    </Link>
+                </Col>
                 <Col col="12">
                     <Heading align="left" transform="uppercase" bold>{movieData.title.native}</Heading>
                 </Col>

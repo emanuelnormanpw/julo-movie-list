@@ -14,6 +14,8 @@ query ($page: Int, $perPage: Int, $type: MediaType, $sort: [MediaSort]) {
             large
         }
         isAdult
+        genres
+        seasonYear
         title {
           romaji
           english

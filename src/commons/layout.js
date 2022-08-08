@@ -6,6 +6,7 @@ export const Layout = styled('div')(
     {
         color: color.white,
         fontFamily: 'Inter-Regular',
+        paddingBottom: 64,
     },
 );
 
@@ -17,6 +18,7 @@ export const Container = styled('div')(
         [mobile]: {
             maxWidth: 350,
         },
+
     },
 );
 

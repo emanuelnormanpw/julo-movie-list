@@ -33,15 +33,13 @@ const CardImage = styled('div')({
     },
 });
 
-const TextOverlay = () => {};
-
 export const Card = (props) => {
-    const { id, img, text, isAdult, withLink } = props;
+    const { id, img, withLink } = props;
     return (
         <CardWrapper>
             {withLink
                 ? (
-                    <Link to={`detail/${id}`}>
+                    <Link to={`/detail/${id}`}>
                         <CardImage>
                             <img src={img}></img>
                         </CardImage>

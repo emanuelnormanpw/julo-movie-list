@@ -26,8 +26,11 @@ export const Col = styled('div')(
         textAlign: props.align,
         flex: `0 0 ${grid(props.col)}%`,
         minWidth: `${grid(props.col)}%`,
+        display: props.center && 'flex',
+        justifyContent: props.center && 'center',
+        alignItems: props.center && 'center',
         [mobile]: {
-            flex: `0 0 ${grid(props.md)}%`,
+            flex: `0 0 ${grid(props.md || props.col)}%`,
         },
     }),
 );

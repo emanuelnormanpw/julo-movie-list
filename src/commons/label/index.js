@@ -1,26 +1,32 @@
 import styled from '@emotion/styled';
-import { Row, Col } from 'commons/grid';
-import { color, mobile, bold, normal } from 'commons/theme';
+import { color } from 'commons/theme';
 import { Typography } from 'commons/typography';
 
 const LabelWrapper = styled('div')({
-    color: color.lightGray,
+    color: color.white,
     margin: 0,
     display: 'inline-block',
-});
+    padding: 6,
+    backgroundColor: color.darkGray,
+    borderRadius: 5,
+    '& p': {
+        fontSize: 10,
+    },
+},
+(props) => ({
+    margin: props.labelMargin,
+    padding: props.labelPadding,
+    backgroundColor: props.bordered ? 'inherit' : props.customColor,
+    border: `1px solid ${props.customColor || color.darkGray}`,
+}));
 
 export const Label = (props) => {
     const { text } = props;
+
     return (
-        <LabelWrapper>
+        <LabelWrapper {...props}>
             <Typography
                 {...props}
-                style={{
-                    padding: 6,
-                    fontSize: 10,
-                    backgroundColor: color.darkGray,
-                    borderRadius: 5,
-                }}
             >
                 {text}
             </Typography>
